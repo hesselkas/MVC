@@ -2,6 +2,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #B2C9AB;
+    overflow: hidden;
 }
 
 .nav {
@@ -24,6 +25,17 @@ body {
 
 }
 
+.profiel {
+    width: 40px;
+    left: 800px;
+    height: 40px;
+    position: relative;
+    margin: 0px;
+    display: flex;
+    padding: 0%;
+    border-radius: 2px;
+
+}
 
 
 .container {
