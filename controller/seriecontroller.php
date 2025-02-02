@@ -7,7 +7,7 @@ class FilmController{
     public static function execute(){
         global $pdo;
 
-        $stmt = $pdo->prepare("SELECT name, description, rating, img FROM films WHERE id = :id");
+        $stmt = $pdo->prepare("SELECT name, episodes, description, rating, img FROM series WHERE id = :id");
 
         $id = $_GET["id"];
         $stmt->bindParam(':id', $id);
@@ -17,12 +17,13 @@ class FilmController{
 
         if ($result) {
             $name = $result["name"];
+            $episodes = $result["episodes"];
             $description = $result["description"];
             $rating = $result["rating"];
             $img = $result["img"];
         }
 
-        FilmView::render("$name", "$description", "$rating", "$img");
+        FilmView::render("$name",  "$description", "$rating", "$img", $episodes);
     }
 }
 

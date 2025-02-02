@@ -1,11 +1,12 @@
 <?php
 
-class FilmView
+class SerieView
 {
-    public static function render($name, $description, $rating, $img)
+    public static function render($name, $episodes, $description, $rating, $img)
     {
 
         echo "<p>$name</p>";
+        echo "<p>$episodes</p>";
         echo "<p>$description</p>";
         echo "<p>$rating</p>";
 
@@ -16,7 +17,7 @@ class FilmView
     }
 }
 
-            ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
