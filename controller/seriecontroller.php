@@ -1,13 +1,13 @@
 <?php
 
-require_once "../view/film-pagina.php";
+
 include "../model/DBconnect.php";
 
-class FilmController{
+class SerieController{
     public static function execute(){
         global $pdo;
 
-        $stmt = $pdo->prepare("SELECT name, episodes, description, rating, img FROM series WHERE id = :id");
+        $stmt = $pdo->prepare("SELECT id, name, episodes, description, rating, img FROM series WHERE id = :id");
 
         $id = $_GET["id"];
         $stmt->bindParam(':id', $id);
@@ -23,10 +23,12 @@ class FilmController{
             $img = $result["img"];
         }
 
-        FilmView::render("$name",  "$description", "$rating", "$img", $episodes);
+        return $result;
     }
 }
 
 
-FilmController::execute();
+SerieController::execute();
 ?>
+
+

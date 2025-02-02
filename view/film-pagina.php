@@ -1,22 +1,4 @@
-<?php
 
-class FilmView
-{
-    public static function render($name, $description, $rating, $img)
-    {
-
-        echo "<p>$name</p>";
-        echo "<p>$description</p>";
-        echo "<p>$rating</p>";
-
-        if ($img) {
-            $img_base64 = base64_encode($img);
-            echo '<img src="data:image/jpeg;base64,' . $img_base64 . '" alt="Film Image" />';
-        }
-    }
-}
-
-            ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,5 +9,33 @@ class FilmView
 </head>
 <body>
 
+<div class="nav">
+    <a href="index.html" class="navid">home</a>
+    <a href="films.html" class="navid">Films</a>
+    <a href="serie.php" class="navid">Series</a>
+    <a href="profiel.html">
+        <img class="profiel" src="foto\pfp placeholder.jpg">
+    </a>
+</div>
+
+<?php
+include '../controller/filmcontroller.php';
+
+$data = FilmController::execute();
+?>x
+
+    <div class="tekst">
+        <?php if ($data): ?>
+            <h1><?php echo htmlspecialchars($data['name']); ?></h1>
+            <p><?php echo htmlspecialchars($data['description']); ?></p>
+            <p>Rating: <?php echo htmlspecialchars($data['rating']); ?></p>
+            <div class='product-img'><img src='../view/foto/<?php echo $data["id"]; ?>.jpg'
+                                          alt='Product Image'></div>
+        <?php else: ?>
+            <p>Film not found.</p>
+        <?php endif; ?>
+    </div>
+
 </body>
 </html>
+
