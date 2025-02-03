@@ -22,7 +22,7 @@
 include '../controller/filmcontroller.php';
 
 $data = FilmController::execute();
-?>x
+?>
 
     <div class="tekst">
         <?php if ($data): ?>
